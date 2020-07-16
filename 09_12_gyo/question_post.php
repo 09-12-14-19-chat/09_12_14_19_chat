@@ -67,5 +67,5 @@ try {
 
     // $room = $stmt->fetch();
     $_SESSION['roomId'] = $chatroom;
-    header('Location:../09_14_sakaki/chatroom.php');
+    header('Location:../09_14/chatroom.php');
 // }
