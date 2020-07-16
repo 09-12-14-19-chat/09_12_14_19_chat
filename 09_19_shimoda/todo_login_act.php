@@ -138,6 +138,6 @@ if (!$val) {
   $_SESSION["is_admin"] = $val["is_admin"];
   $_SESSION["username"] = $val["username"];
   $_SESSION["id"] = $val["id"];
-  header("Location:../09_14_chat/chatroom.php");
+  header("Location: ../09_12_gyo/question.php");
   exit();
 }

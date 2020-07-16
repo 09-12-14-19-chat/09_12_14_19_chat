@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>Friend Find chat</header>
-    <form action="Question_post.php" method="POST">
+    <form action="question_post.php" method="POST">
         <h1>QUESTION</h1>
         <h2>
             嫌いなのは？？？？

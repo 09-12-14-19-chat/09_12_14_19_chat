@@ -1,10 +1,8 @@
 <?php
 
-
-
 // var_dump($_POST);
 // exit();
-
+session_start();
 if (
     !isset($_POST['like']) || $_POST['like'] == '' ||
     !isset($_POST['likefood']) || $_POST['likefood'] == ''
@@ -33,7 +31,7 @@ if ($like == '1' && $likefood == '1') {
 // var_dump($like, $chatroom, $likefood);
 // exit();
 
-$dbn = 'mysql:dbname=gsf_d06_db12;charset=utf8;port=3306;host=localhost';
+$dbn = 'mysql:dbname=chatRoom;charset=utf8;port=3308;host=localhost';
 $user = 'root';
 $pwd = '';
 
@@ -47,26 +45,27 @@ try {
 }
 
 // データ取得SQL作成
-$sql = ' INSERT INTO chat_quest(id,quest1, quest2, RoomNumber, time)              
-  VALUES(NULL,:quest1, :quest2, :RoomNumber, sysdate())';
+// $sql = ' INSERT INTO chat_quest(id,quest1, quest2, RoomNumber, time)              
+//   VALUES(NULL,:quest1, :quest2, :RoomNumber, sysdate())';
+// $sql = 'SELECT RoomNumber where chat_quest';
 
-
-
-// SQL準備&実行
-$stmt = $pdo->prepare($sql);
-$stmt->bindValue(':quest1', $like, PDO::PARAM_STR);
-$stmt->bindValue(':quest2', $likefood, PDO::PARAM_STR);
-$stmt->bindValue(':RoomNumber', $chatroom, PDO::PARAM_STR);
-$status = $stmt->execute();
+// // SQL準備&実行
+// $stmt = $pdo->prepare($sql);
+// $stmt->bindValue(':quest1', $like, PDO::PARAM_STR);
+// $stmt->bindValue(':quest2', $likefood, PDO::PARAM_STR);
+// $stmt->bindValue(':RoomNumber', $chatroom, PDO::PARAM_STR);
+// $status = $stmt->execute();
 
 // データ登録処理後
-$view = '';
-// データ登録処理後
-if ($status == false) {
-    // SQL実行に失敗した場合はここでエラーを出力し，以降の処理を中止する
-    $error = $stmt->errorInfo();
-    exit('sqlError:' . $error[2]);
-} else {
+// $view = '';
+// // データ登録処理後
+// if ($status == false) {
+//     // SQL実行に失敗した場合はここでエラーを出力し，以降の処理を中止する
+//     $error = $stmt->errorInfo();
+//     exit('sqlError:' . $error[2]);
+// } else {
 
-    header('');
-}
+    // $room = $stmt->fetch();
+    $_SESSION['roomId'] = $chatroom;
+    header('Location:../09_14_sakaki/chatroom.php');
+// }
