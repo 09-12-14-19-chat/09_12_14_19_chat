@@ -17,7 +17,6 @@ function connect_to_db()
     exit();
   }
 }
-
 // ログイン状態のチェック関数
 function check_session_id()
 {
